@@ -23,6 +23,14 @@
 			}
 			gridCTX.stroke();
 
+
+			function toggleGrid(){
+				grid.style.visibility=grid.style.visibility==='hidden'?'visible':'hidden';
+			}
+			const gridBtn=document.getElementById('gridBtn');
+			gridBtn.addEventListener('click',toggleGrid);
+
+
 			const canvas=document.getElementById('mainCanvas');
 			const ctx=canvas.getContext('2d');
 			ctx.beginPath();
@@ -33,9 +41,18 @@
 			ctx.lineTo(250,200);
 			ctx.lineTo(200,200);
 			ctx.lineTo(200,300);
-			ctx.arcTo(225,350,260,325,42);
+			ctx.arcTo(210,350,260,340,48);
+			ctx.arcTo(350,330,250,200,50);
+			ctx.lineTo(310,250);
+			ctx.lineTo(328,255);
+			ctx.lineTo(327,290);
+			ctx.moveTo(328,275);
+			ctx.lineTo(368,270);
+			ctx.lineTo(370,285);
+			ctx.lineTo(327,290);
 			ctx.strokeStyle='blue';
 			ctx.lineWidth=7;
+			ctx.lineCap='round';
 			ctx.stroke();
 		}
 	</script>
@@ -43,5 +60,6 @@
 <body>
 	<canvas id="mainCanvas" height="600" width="600" style="position: absolute; left:0"></canvas>
 	<canvas id="grid" height="600" width="600" style="position: absolute; left:0; visibility:visible;"></canvas>
+	<button id='gridBtn' style="position: absolute; left:620px">Grid</button>
 </body>
 </html>
