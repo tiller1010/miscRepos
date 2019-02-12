@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logo</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			const grid=document.getElementById('grid');
+			const gridCTX=grid.getContext('2d');
+			let h=25;
+			let v=25;
+			gridCTX.beginPath();
+			while(h!==600){
+				gridCTX.moveTo(0,h);
+				gridCTX.lineTo(600,h);
+				h+=25;
+			}
+			gridCTX.stroke();
+			gridCTX.beginPath();
+			while(v!==600){
+				gridCTX.moveTo(v,0);
+				gridCTX.lineTo(v,600);
+				v+=25;
+			}
+			gridCTX.stroke();
+
+			const canvas=document.getElementById('mainCanvas');
+			const ctx=canvas.getContext('2d');
+			ctx.beginPath();
+			ctx.moveTo(100,100);
+			ctx.lineTo(200,50);
+			ctx.lineTo(200,150);
+			ctx.lineTo(350,150);
+			ctx.lineTo(250,200);
+			ctx.lineTo(200,200);
+			ctx.lineTo(200,300);
+			ctx.arcTo(225,350,260,325,42);
+			ctx.strokeStyle='blue';
+			ctx.lineWidth=7;
+			ctx.stroke();
+		}
+	</script>
+</head>
+<body>
+	<canvas id="mainCanvas" height="600" width="600" style="position: absolute; left:0"></canvas>
+	<canvas id="grid" height="600" width="600" style="position: absolute; left:0; visibility:visible;"></canvas>
+</body>
+</html>
