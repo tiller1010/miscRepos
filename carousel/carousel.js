@@ -43,5 +43,20 @@ window.onload=function(){
 		const previousSlide=currentSlide.previousElementSibling;
 
 		moveToSlide(track,currentSlide,previousSlide);
+	});
+
+	//Indicators to change slide on click
+	navCircles.addEventListener('click',event=>{
+		const targetDot=event.target.closest('button');
+		if(!targetDot) return;
+		const currentSlide=track.querySelector('.currentSlide');
+		const currentDot=navCircles.querySelector('.currentSlide');
+		const targetIndex=dots.findIndex(dot=> dot===targetDot);
+		const targetSlide=slides[targetIndex];
+
+		moveToSlide(track, currentSlide, targetSlide);
+
+		currentDot.classList.remove('currentSlide')
+		targetDot.classList.add('currentSlide')
 	})
 }
