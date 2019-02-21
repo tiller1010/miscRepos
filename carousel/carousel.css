@@ -44,6 +44,7 @@ button{
 	top:50%;
 	transform: translateY(-50%);
 	z-index: 2;
+	height:100px;
 }
 
 .carouselButtonRight{
@@ -51,6 +52,8 @@ button{
 	right:-20px;
 	top:50%;
 	transform: translateY(-50%);
+	z-index: 2;
+	height:100px;
 }
 
 .carouselNav{

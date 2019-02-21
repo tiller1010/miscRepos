@@ -30,19 +30,30 @@ window.onload=function(){
 		targetSlide.classList.add('currentSlide');
 	}
 
+	const upDateDots=(currentDot, targetDot)=>{
+		currentDot.classList.remove('currentSlide')
+		targetDot.classList.add('currentSlide')
+	}
+
 
 	nextButton.addEventListener('click', event=>{
 		const currentSlide=track.querySelector('.currentSlide');
 		const nextSlide=currentSlide.nextElementSibling;
+		const currentDot=navCircles.querySelector('.currentSlide');
+		const nextDot=currentDot.nextElementSibling;
 
 		moveToSlide(track,currentSlide,nextSlide);
+		upDateDots(currentDot, nextDot);
 	});
 
 	previousButton.addEventListener('click', event=>{
 		const currentSlide=track.querySelector('.currentSlide');
 		const previousSlide=currentSlide.previousElementSibling;
+		const currentDot=navCircles.querySelector('.currentSlide');
+		const previousDot=currentDot.previousElementSibling;
 
 		moveToSlide(track,currentSlide,previousSlide);
+		upDateDots(currentDot, previousDot);
 	});
 
 	//Indicators to change slide on click
@@ -55,8 +66,6 @@ window.onload=function(){
 		const targetSlide=slides[targetIndex];
 
 		moveToSlide(track, currentSlide, targetSlide);
-
-		currentDot.classList.remove('currentSlide')
-		targetDot.classList.add('currentSlide')
+		upDateDots(currentDot, targetDot);
 	})
 }
